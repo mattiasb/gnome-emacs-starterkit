@@ -1,0 +1,16 @@
+*#*
+*.elc
+*.orig
+*~
+.cask/
+.mc-lists.el
+auto-save-list
+bookmarks
+elpa
+projectile-bookmarks.eld
+projectile-bookmarks.eld.mc-lists.el
+projectile.cache
+session.*
+srecode-map.el
+/flycheck_init.el
+/flycheck_custom.el

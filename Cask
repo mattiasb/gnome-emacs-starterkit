@@ -1,0 +1,13 @@
+(source gnu)
+(source melpa)
+
+(depends-on "cask")
+(depends-on "company")
+(depends-on "flycheck")
+(depends-on "js2-mode")
+(depends-on "js2-refactor")
+(depends-on "pallet")
+(depends-on "projectile")
+(depends-on "rtags")
+(depends-on "vala-mode")
+(depends-on "yasnippet")

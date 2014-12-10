@@ -1,0 +1,3 @@
+[submodule "site-lisp/cask"]
+	path = site-lisp/cask
+	url = https://github.com/cask/cask.git
