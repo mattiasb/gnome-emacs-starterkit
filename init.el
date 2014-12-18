@@ -37,7 +37,17 @@
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
+;;;; Functions
 
+(defun my/company-select-next-five ()
+  "A bit more eager `company-select-next'."
+  (interactive)
+  (dotimes (number 5 nil) (company-select-next)))
+
+(defun my/company-select-previous-five ()
+  "A bit more eager `company-select-previous'."
+  (interactive)
+  (dotimes (number 5 nil) (company-select-previous)))
 
 ;;;; Mode initializations
 
@@ -52,6 +62,17 @@
             ;; inherit from prog-mode-map
             (unless (keymap-parent c-mode-base-map)
               (set-keymap-parent c-mode-base-map prog-mode-map))))
+
+;; Company
+(add-hook 'company-mode-hook
+          (lambda ()
+            (define-key company-active-map (kbd "\C-n")    'company-select-next)
+            (define-key company-active-map (kbd "\C-p")    'company-select-previous)
+            (define-key company-active-map (kbd "<next>")  'my/company-select-next-five)
+            (define-key company-active-map (kbd "<prior>") 'my/company-select-previous-five)
+            (define-key company-active-map (kbd "\C-d")    'company-show-doc-buffer)
+            (define-key company-active-map (kbd "\C-v")    'company-show-location)
+            (define-key company-active-map (kbd "\C-g")    'company-abort)))
 
 (add-hook 'flycheck-mode-hook
           (lambda()
