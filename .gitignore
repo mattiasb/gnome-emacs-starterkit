@@ -14,3 +14,4 @@ session.*
 srecode-map.el
 /flycheck_init.el
 /flycheck_custom.el
+/ido.last

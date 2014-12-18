@@ -127,11 +127,26 @@
 
 ;;;; Post-init
 
+(defun init-ido ()
+  "Initialize `IDO'."
+  (interactive)
+
+  (ido-mode)
+  (ido-ubiquitous-mode)
+  ;; Vertical IDO
+  (ido-vertical-mode)
+  ;; Fuzzy matching
+  (flx-ido-mode)
+
+  ;; smex is like ido but for M-x
+  (global-set-key (kbd "M-x") 'smex))
+
 (add-hook 'after-init-hook
           (lambda()
             (require 'cask)
             (cask-initialize)
             (pallet-mode t)
+            (init-ido)
             (yas-global-mode)
             (projectile-global-mode)))
 
