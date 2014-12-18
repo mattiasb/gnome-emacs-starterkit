@@ -132,10 +132,6 @@
             (require 'cask)
             (cask-initialize)
             (pallet-mode t)
-
-            ;; customizations that for various reasons can't be in
-            ;; the customize block.
-
             (yas-global-mode)
             (projectile-global-mode)))
 
