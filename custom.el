@@ -50,6 +50,7 @@
  '(gc-cons-threshold 20000000)
  '(global-company-mode t)
  '(inhibit-startup-screen t)
+ '(ido-vertical-define-keys 'C-n-C-p-up-down-left-right)
  '(js2-allow-keywords-as-property-names t)
  '(js2-basic-offset 4)
  '(js2-cleanup-whitespace t)
