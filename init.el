@@ -137,9 +137,13 @@
   (ido-vertical-mode)
   ;; Fuzzy matching
   (flx-ido-mode)
+  )
 
-  ;; smex is like ido but for M-x
-  (global-set-key (kbd "M-x") 'smex))
+(defun setup-keys ()
+  "Setup global keybindings."
+  (interactive)
+  (global-set-key (kbd "M-x")      'smex)
+  )
 
 (add-hook 'after-init-hook
           (lambda()
@@ -147,6 +151,7 @@
             (cask-initialize)
             (pallet-mode t)
             (init-ido)
+            (setup-keys)
             (yas-global-mode)
             (projectile-global-mode)))
 
