@@ -120,7 +120,7 @@
   (setq-local indent-tabs-mode nil)
   (company-mode)
   (flycheck-mode)
-  (define-key prog-mode-map (kbd "<tab>") 'my/tab-indent-or-complete))
+  )
 (add-hook 'prog-mode-hook 'my/prog-mode)
 
 
@@ -143,6 +143,7 @@
   "Setup global keybindings."
   (interactive)
   (global-set-key (kbd "M-x")      'smex)
+  (global-set-key (kbd "<tab>")    'my/tab-indent-or-complete)
   )
 
 (add-hook 'after-init-hook
