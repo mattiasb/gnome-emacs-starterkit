@@ -49,6 +49,29 @@
   (interactive)
   (dotimes (number 5 nil) (company-select-previous)))
 
+(defun my/preceding-char-match-p (pattern)
+  "Match preceding char with PATTERN."
+  (let ((str (string (preceding-char))))
+    (string-match-p pattern str)))
+
+(defun my/yas-expand ()
+  "Perform a `yas-expand' but return nil on failure."
+  (if (not (yas-minor-mode)) nil
+    (let ((yas-fallback-behavior 'return-nil))
+      (yas-expand))))
+
+(defun my/tab-indent-or-complete ()
+  "Tab indent or complete (using `company-mode') depending on context."
+  (interactive)
+  (if (minibufferp)
+      (minibuffer-complete)
+    (let ((old-indent (current-indentation)))
+      (indent-for-tab-command)
+      (if (and (= old-indent (current-indentation))
+               (my/preceding-char-match-p "[a-zA-Z\-\.\>\_\/\:]")
+               (null (my/yas-expand)))
+          (company-complete-common)))))
+
 ;;;; Mode initializations
 
 (add-hook 'c-mode-common-hook
@@ -96,7 +119,8 @@
   "My `prog-mode' hook."
   (setq-local indent-tabs-mode nil)
   (company-mode)
-  (flycheck-mode))
+  (flycheck-mode)
+  (define-key prog-mode-map (kbd "<tab>") 'my/tab-indent-or-complete))
 (add-hook 'prog-mode-hook 'my/prog-mode)
 
 
