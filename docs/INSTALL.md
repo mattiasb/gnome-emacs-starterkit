@@ -98,23 +98,11 @@ $ for cc in "gcc" "g++" "cc" "c++"; do ln -s gcc-rtags-wrapper.sh "${cc}"; done
 
 ## Emacs
 
-### Prerequisites
-
-###### Cask
-
-[Cask][Cask] is a project management tool for Emacs Lisp and will help us install all
-Emacs packages that we need.
-
-```bash
-$ mkdir -p ~/.local/share
-$ cd ~/.local/share/
-$ git clone https://github.com/cask/cask.git
-$ ln -s ~/.local/share/cask/bin/cask ~/.local/bin/cask
-```
+### Preparation
 
 ###### Backup
 
-Let's be safe and backup your previous emacs configuration
+Let's be safe and backup our previous emacs configuration.
 
 ```bash
 $ mkdir ~/Documents/emacs-backup/
@@ -127,6 +115,17 @@ This is the repository you're reading from right now.
 
 ```bash
 $ git clone https://github.com/moonlite/gnome-emacs-starterkit.git ~/.emacs.d
+$ cd ~/.emacs.d
+$ git submodule update --init
+```
+
+###### Cask
+
+[Cask][Cask] is a project management tool for Emacs Lisp and will help us install all
+Emacs packages that we need.
+
+```bash
+$ ln -s ~/.emacs.d/site-lisp/cask/bin/cask ~/.local/bin/cask
 ```
 
 ### Installation
