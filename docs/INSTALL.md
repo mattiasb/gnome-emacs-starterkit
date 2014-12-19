@@ -61,7 +61,7 @@ For C (and C++) auto completion, code navigation and such we will go with the ex
 ```bash
 $ git clone --depth 1 https://github.com/Andersbakken/rtags.git
 $ cd rtags
-$ git submodule update  --init
+$ git submodule update --init
 $ mkdir build
 $ cd build
 ```
